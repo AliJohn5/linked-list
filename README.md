@@ -26,7 +26,7 @@ The `LinkedList` class is a generic, singly linked list implementation in C++. I
 ```cpp
 #include <iostream>
 #include <vector>
-#include "main.cpp" // or the file where LinkedList is defined
+#include "linked_list.hpp" // or the file where LinkedList is defined
 
 int main()
 {

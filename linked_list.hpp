@@ -21,6 +21,7 @@ private:
 public:
     LinkedList(std::vector<T> data)
     {
+        // Create linked list from vector time complexity O(n)
         if (!data.empty())
         {
             _root = new Node(data[0]);
@@ -45,6 +46,7 @@ public:
 
     ~LinkedList()
     {
+        // Destructor to free memory
         Node *n = _root;
 
         while (n != nullptr)
@@ -57,6 +59,7 @@ public:
 
     std::vector<T> toVector()
     {
+        // Convert linked list to vector time complexity O(n)
         Node *n = _root;
         std::vector<T> ans(_size);
 
@@ -71,6 +74,7 @@ public:
 
     void pushBack(T val)
     {
+        // Add element to the end of the list time complexity O(1)
         Node *newNode = new Node(val);
 
         if (_last != nullptr)
@@ -89,6 +93,7 @@ public:
 
     void popBack()
     {
+        // Remove element from the end of the list time complexity O(n)
         if (_size == 0)
         {
             return;
@@ -118,6 +123,7 @@ public:
 
     void pushFront(T val)
     {
+        // Add element to the front of the list time complexity O(1)
         Node *newNode = new Node(val);
 
         if (_root != nullptr)
@@ -136,6 +142,7 @@ public:
 
     void popFront()
     {
+        // Remove element from the front of the list time complexity O(1)
         if (_size == 0)
         {
             return;
@@ -154,6 +161,7 @@ public:
 
     void insertAt(size_t index, T val)
     {
+        // Insert element at specific index time complexity O(n)
         if (index > _size)
         {
             throw std::out_of_range("Index out of range");
@@ -186,6 +194,7 @@ public:
 
     void eraseAt(size_t index)
     {
+        // Remove element at specific index time complexity O(n)
         if (index >= _size)
         {
             throw std::out_of_range("Index out of range");
@@ -218,6 +227,7 @@ public:
 
     void setAt(size_t index, T val)
     {
+        // Set value at specific index time complexity O(n)
         if (index >= _size)
         {
             throw std::out_of_range("Index out of range");
@@ -235,6 +245,7 @@ public:
 
     void insertVectorAt(size_t index, const std::vector<T> &data)
     {
+        // Insert vector of elements at specific index time complexity O(n + m)
         if (index > _size)
         {
             throw std::out_of_range("Index out of range");
@@ -276,6 +287,7 @@ public:
 
     void eraseRange(size_t index, size_t count)
     {
+        // Remove range of elements starting from specific index time complexity O(n)
         if (index >= _size)
         {
             return;
@@ -304,11 +316,13 @@ public:
 
     size_t size() const
     {
+        // Get the size of the list time complexity O(1)
         return _size;
     }
 
     T at(size_t index) const
     {
+        // Get value at specific index time complexity O(n)
         if (index >= _size)
         {
             throw std::out_of_range("Index out of range");
@@ -326,6 +340,7 @@ public:
 
     void clear()
     {
+        // Clear the list time complexity O(n)
         Node *n = _root;
 
         while (n != nullptr)
@@ -347,6 +362,7 @@ public:
     LinkedList(LinkedList<T> &&other) noexcept
         : _root(other._root), _last(other._last), _size(other._size)
     {
+        
         other._root = nullptr;
         other._last = nullptr;
         other._size = 0;
